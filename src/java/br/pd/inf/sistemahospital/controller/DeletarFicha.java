@@ -42,11 +42,25 @@ public class DeletarFicha implements ProcessoGenerico{
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
         String pageJSP = "";
-        String idPaciente = req.getParameter("pacienteId");
-        int id = Integer.parseInt(idPaciente);
+        String msg="";
+        if(req.getParameter("id")== null){
+            res.sendRedirect("index.jsp");
+        }else{
+            String id = req.getParameter("id");
+            int foo = Integer.parseInt(id);
+
+            FichaPacienteDAO dao = new FichaPacienteDAO();
+            FichaPaciente obj = dao.buscarPorChavePrimaria(foo);
+
+            if(obj!=null){
+                ficha = keepCadastro.pesquisarFichaByID(foo);
+                keepCadastro.deletarFicha(ficha);
+                msg="Registro excluido com sucesso!";
+            }else{
+                msg="Registro não encontrado!";
+            }
+        }
         
-        ficha = keepCadastro.pesquisarFichaByID(id);
-        keepCadastro.deletarFicha(ficha);
         
         
             pageJSP = "/index.jsp";

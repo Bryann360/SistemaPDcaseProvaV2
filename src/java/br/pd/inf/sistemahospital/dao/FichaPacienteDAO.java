@@ -31,4 +31,8 @@ public class FichaPacienteDAO extends Cadastro{
     public List findAll() {
         return em.createNamedQuery("FichaPaciente.findAll").getResultList();
     }
+    
+    public FichaPaciente buscarPorChavePrimaria(int chave){
+        return em.find(FichaPaciente.class, chave);
+    }
 }
