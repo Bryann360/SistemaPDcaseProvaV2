@@ -15,5 +15,5 @@ public interface KeepCadastro {
     public void criarFicha(FichaPaciente ficha);
         public void deletarFicha (FichaPaciente ficha);
             public void editarFicha (FichaPaciente ficha);
-                public FichaPaciente pesquisarFichaByID(long Id);           
+                public FichaPaciente pesquisarFichaByID(int Id);           
 }

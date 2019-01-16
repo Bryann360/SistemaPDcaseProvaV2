@@ -31,4 +31,8 @@ public class EspecialidadesDAO extends Cadastro{
     public List findAll() {
         return em.createNamedQuery("Especialidades.findAll").getResultList();
     }
+    
+    public Especialidades buscarPorId(int id){
+        return em.find(Especialidades.class, id);
+    }
 }

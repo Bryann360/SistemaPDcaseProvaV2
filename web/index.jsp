@@ -13,10 +13,11 @@
     List<FichaPaciente> ficha = dao.findAll();
     
     EspecialidadesDAO dao1 = new EspecialidadesDAO();
-    List<Especialidades> esp = dao1.findAll();
     
     PlanosDeSaudeDAO dao2 = new PlanosDeSaudeDAO();
     
+    
+
 %>
 <html>
     <head>
@@ -45,15 +46,14 @@
             </tr>
             <%
             for(FichaPaciente item:ficha){
-                for(Especialidades item2:esp)
-                        if(item.getIdEspecialidade()==item2.getId())
+                
             %>
                 <tr>
                     <td><%=item.getId() %></td>
                     <td><%=item.getNomePaciente() %></td>
                     <td><%=item.getNumeroCarteiraPlano() %></td>
-                    <td><%=item.getIdEspecialidade() %></td>
-                    <td><%=item.getIdEspecialidade() %></td>
+                    <td><%=item.getIdPlanoDeSaude().getNome() %></td>
+                    <td><%=item.getIdEspecialidade().getNome() %></td>
                     <td>
                         <a href="ediatFicha?id=<%=item.getId() %>">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;

@@ -61,7 +61,7 @@ public class KeepCadastroImplementacao implements KeepCadastro{
                 this.ficha.edit(ficha);
             }
                 @Override
-                public FichaPaciente pesquisarFichaByID(long Id){
+                public FichaPaciente pesquisarFichaByID(int Id){
                     
                     FichaPaciente resultado = (FichaPaciente) ficha.find(Id);
                     return resultado;

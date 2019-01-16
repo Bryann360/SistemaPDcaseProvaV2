@@ -34,7 +34,7 @@ public abstract class Cadastro<T> {
         getEntityManager().getTransaction().commit();
     }
     
-    public T find(long id){
+    public T find(Object id){
         return getEntityManager().find(entityClass, id);
     }
     
