@@ -19,9 +19,16 @@
     <body>
         <div>
         <form name="criarFicha" action="servletcontroller?flag=CriarFicha" method="POST">
-            <label style=" float: left; ">Nome:</label><input style="margin-left: 100px;" type="text" name="nome"  >     <br>
-            <label style=" float: left; ">Numero Carteira:</label><input style="margin-left: 100px;" type="number" name="numeroCarteira"  >   <br>
-            <label style=" float: left; ">Id Especialidade:</label> <br>
+            <table>
+                <tr>
+                    <td><label style=" float: left; ">Nome:</label></td><td><input style="margin-left: 100px;" type="text" name="nome"  > </td>    
+            </tr>
+            <tr>
+            <td><label style=" float: left; ">Numero Carteira:</label></td><td><input style="margin-left: 100px;" type="number" name="numeroCarteira"  >   </td>
+            </tr>
+            <tr>
+            <td><label style=" float: left; ">Id Especialidade:</label> </td>
+            <td>
             <select name="idEspecialidade" style="margin-left: 100px;">
               <%
               for(Especialidades item:objEsp){
@@ -30,8 +37,11 @@
               <%
               }
               %>
-            </select> <br>
-            <label style=" ">Id Plano:</label>
+            </select></td> 
+            </tr>
+            <tr>
+                <td><label style=" ">Id Plano:</label></td>
+                <td>
             <select name="idPlano" style="margin-left: 100px;">
               <%
               for(PlanosDeSaude item:objPla){
@@ -40,8 +50,11 @@
               <%
               }
               %>
-            </select> <br>
-            <label style=" "></label><input style="margin-left: 100px;" type="submit" value="Cadastrar" >   
+            </select> </td>
+            </tr>
+            <tr>
+                <td><label style=" "></label></td><td><input style="margin-left: 100px;" type="submit" value="Cadastrar" >   </td>
+            </tr>
         </form>
         </div>
     </body>
