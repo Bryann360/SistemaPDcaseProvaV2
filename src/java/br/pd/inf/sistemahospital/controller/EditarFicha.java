@@ -42,23 +42,38 @@ public class EditarFicha implements ProcessoGenerico{
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
         String pageJSP = "";
+        
+        FichaPacienteDAO dao = new FichaPacienteDAO();
+        String id = req.getParameter("IDFICHA");
+        int foo2 = Integer.parseInt(id);
+        FichaPaciente obj = dao.buscarPorChavePrimaria(foo2);
+        if(obj == null){
+            pageJSP = "/index.jsp";
+        return pageJSP;
+        }
         String nome = req.getParameter("nome");
         String numeroCarteira = req.getParameter("numeroCarteira");
         int foo = Integer.parseInt(numeroCarteira);
-        
-        
-        
+        String planoIdString = req.getParameter("idPlano");
+        planoId = Integer.parseInt(planoIdString);
+        String especialidadeIdString = req.getParameter("idEspecialidade");
+        especialidadeId = Integer.parseInt(especialidadeIdString);
         plano = (PlanosDeSaude) planoDAO.find(planoId);
         especialidade = (Especialidades) especialidadesDAO.find(especialidadeId);
-        ficha.setIdEspecialidade(especialidade);
-        ficha.setNomePaciente(nome);
-        ficha.setIdPlanoDeSaude(plano);
-        ficha.setNumeroCarteiraPlano(foo);
-        ficha.setId(pacienteId);
-        keepCadastro.editarFicha(ficha);
+
+        obj.setNomePaciente(nome);
+        obj.setNumeroCarteiraPlano(foo);
+        obj.setIdEspecialidade(especialidade);
+        obj.setIdPlanoDeSaude(plano);
+        
+        dao.edit(obj);
         
             pageJSP = "/index.jsp";
         return pageJSP;
+        
+        
+        
+       
     }
     
 }

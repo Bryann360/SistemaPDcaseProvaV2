@@ -55,7 +55,7 @@
                     <td><%=item.getIdPlanoDeSaude().getNome() %></td>
                     <td><%=item.getIdEspecialidade().getNome() %></td>
                     <td>
-                        <a href="ediatFicha.jsp?id=<%=item.getId() %>">Edit</a>
+                        <a href="editarFicha.jsp?id=<%=item.getId() %>">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="deletarFicha.jsp?id=<%=item.getId() %>">Delete</a>                     
                     </td>
